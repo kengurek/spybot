@@ -1,0 +1,30 @@
+{
+  "name": "spybot",
+  "version": "1.0.0",
+  "description": "Spybot run at raspberry pi and sends you a pic taken from pi camera to telegram on demand",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kengurek/spybot.git"
+  },
+  "keywords": [
+    "raspberry",
+    "pi",
+    "camera",
+    "telegram",
+    "bot",
+    "cctv"
+  ],
+  "author": "Maxim Mordasov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kengurek/spybot/issues"
+  },
+  "homepage": "https://github.com/kengurek/spybot#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.23.3"
+  }
+}
