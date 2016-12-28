@@ -9,7 +9,7 @@ var token = CONFIG['BOT_TOKEN'];
 // Setup polling way
 var bot = new TelegramBot(token, {
     polling: {
-        timeout: 30
+        interval: 10000
     }
 });
 
@@ -18,7 +18,7 @@ bot.on('message', function (msg) {
 
     if (msg.text === '/photo') {
 
-        exec('sh ./capture.sh', function (error, stdout, stderr) {
+        exec('sh ./capture_photo.sh', function (error, stdout, stderr) {
             if (error) {
                 console.error('exec error:', error);
                 return;
@@ -32,6 +32,24 @@ bot.on('message', function (msg) {
         });
 
         bot.sendChatAction(chatId, 'upload_photo');
+    }
+
+    if (msg.text === '/video') {
+
+        exec('sh ./capture_video.sh', function (error, stdout, stderr) {
+            if (error) {
+                console.error('exec error:', error);
+                return;
+            }
+
+            console.log(stderr);
+            console.log(stdout);
+
+            var path = String(stdout).trim();
+            bot.sendVideo(chatId, path);
+        });
+
+        bot.sendChatAction(chatId, 'upload_video');
     }
 
 });
