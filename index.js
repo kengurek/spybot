@@ -11,7 +11,7 @@ var token = CONFIG['BOT_TOKEN'];
 // Setup polling way
 var bot = new TelegramBot(token, {
     polling: {
-        interval: 1000
+        interval: 5000
     }
 });
 
